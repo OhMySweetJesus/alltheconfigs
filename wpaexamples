@@ -1,0 +1,8 @@
+status
+scan
+list_network
+set_network (n) ssid "(ssid)"
+set_network (n) psk "(psk)"
+enable_network (n)
+save_config
+http://www.btopenzone.com/

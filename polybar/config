@@ -1,0 +1,90 @@
+[colors]
+background = ${xrdb:background:#FFF}
+foreground = ${xrdb:color15:#FFF}
+darkened = ${xrdb:color5:#FFF}
+special = ${xrdb:color4:#FFF}
+urgent = ${xrdb:color1:#FFF}
+
+[bar/base]
+monitor = LVDS1
+
+width = 100%
+height = 25
+
+
+bottom = false
+
+font-0 = dejavusansmono:size=11;1
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+separator = "  -  "
+padding = 16
+
+modules-left = 2bws
+modules-center = date
+modules-right = volume temperature battery
+
+workspace-label-current = "x " 
+workspace-current-foreground = ${colors.special}
+
+workspace-label-occupied = ∙
+workspace-occupied-foreground = ${colors.darkened}
+
+workspace-label-unoccupied = ⋅
+workspace-unoccupied-foreground = ${colors.foreground}
+
+[module/date]
+type = internal/date
+
+interval = 1.0
+
+label = %date% : %time%
+
+date = %a %d %b
+time = %H:%M
+
+[module/volume]
+type = internal/volume
+
+label-volume = VOL %percentage%
+label-muted = MUT %percentage%
+
+[module/temperature]
+type = internal/temperature
+
+warn-temperature = 80
+
+label = TEMP %temperature%
+label-warn = !TMP %temperature%
+
+format-foreground = ${colors.special}
+format-warn-foreground = ${colors.urgent}
+
+[module/battery]
+type = internal/battery
+
+battery = BAT0
+adapter = AC
+
+poll-interval = 1
+
+format-full = FULLBAT <label-full>
+format-charging = BAT <animation-charging> <label-charging>
+format-discharging = BAT DIS <label-discharging>
+
+animation-charging-0 = :..
+animation-charging-1 = .:.
+animation-charging-2 = ..:
+animation-charging-3 = ...
+animation-charging-4 = ...
+
+animation-charging-framerate = 100
+
+[module/2bws]
+type = custom/script
+exec = ~/.config/polybar/2bwm.sh
+interval = 0.01
+
+; vim:ft=dosini

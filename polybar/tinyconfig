@@ -1,0 +1,89 @@
+; vim:ft=cfg
+;     _____
+;    (, /   )    /)      /)
+;     _/__ / ___//      (/_ _   __
+;     /     (_)(/_ (_/_/_) (_(_/ (_
+;  ) /            .-/
+; (_/            (_/
+
+[colors]
+foreground = ${xrdb:color7}
+background = ${xrdb:color0}
+
+[global/wm]
+margin-top        = 0
+margin-bottom     = 0
+override-redirect = true
+
+[bar/base]
+monitor = ${env:MONITOR:LVDS1}
+width    = 17%
+height   = 34
+offset-x = 20
+offset-y = 20
+
+fixed-center = true
+bottom = false
+
+border-size = 0
+border-color = ${colors.foreground}
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0 = scientifica:Bold:size=8:antialias=true;2
+font-1 = Siji:size=9;2
+font-2 = fontawesome
+
+modules-left   = plus date battery
+modules-center =
+modules-right  =
+
+padding             = 0
+module-margin-left  = 0
+module-margin-right = 0
+
+[module/plus]
+type           = custom/script
+interval       = 0.01
+exec           = echo $(( $(xprop -root _NET_CURRENT_DESKTOP | sed -e 's/_NET_CURRENT_DESKTOP(CARDINAL) = //') + 1))
+format-padding = 2
+format-background = ${colors.foreground}
+format-foreground = ${colors.background}
+
+[module/date]
+type                     = internal/date
+interval                 = 1
+date                     = "%a %d %b - %I:%M %p"
+format-padding           = 3
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = #ffa900
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = █
+bar-capacity-fill-foreground = #ddffffff
+bar-capacity-fill-font = 2
+bar-capacity-empty = █
+bar-capacity-empty-font = 2
+bar-capacity-empty-foreground = #44ffffff
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750

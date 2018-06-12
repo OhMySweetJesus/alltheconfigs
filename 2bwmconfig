@@ -1,32 +1,48 @@
 ///---User configurable stuff---///
+
 ///---Modifiers---///
+
 #define MOD             XCB_MOD_MASK_4       /* Super/Windows key  or check xmodmap(1) with -pm  defined in /usr/include/xcb/xproto.h */
+
 ///--Speed---///
+
 /* Move this many pixels when moving or resizing with keyboard unless the window has hints saying otherwise.
  *0)move step slow   1)move step fast
  *2)mouse slow       3)mouse fast     */
 static const uint16_t movements[] = {20,40,15,400};
+
 /* resize by line like in mcwm -- jmbi */
 static const bool     resize_by_line          = true;
+
 /* the ratio used when resizing and keeping the aspect */
 static const float    resize_keep_aspect_ratio= 1.03;
+
 ///---Offsets---///
+
 /*0)offsetx          1)offsety
  *2)maxwidth         3)maxheight */
-static const uint8_t offsets[] = {0,0,0,0};
+static const uint8_t offsets[] = {0,25,0,25};
+
 ///---Colors---///
+
 /*0)focuscol         1)unfocuscol
  *2)fixedcol         3)unkilcol
  *4)fixedunkilcol    5)outerbordercol
  *6)emptycol         */
 static const char *colors[] = {"#35586c","#333333","#7a8c5c","#ff6666","#cc9933","#0d131a","#000000"};
+
 /* if this is set to true the inner border and outer borders colors will be swapped */
-static const bool inverted_colors = true;
+static const bool inverted_colors = false;
 
 //---Define programs--//
-static const char *terminal[] = {"termite", NULL};
-static const char *launcher[] = {"rofi","-show","run", NULL};
-static const char *volumeraise[] = {"/home/lordjesus/Scripts/volumeraise.sh", NULL};
+static const char *terminal[] = {"urxvt", NULL};
+static const char *launcher[] = {"rofi","-show","run","-lines","3","-width","20", NULL};
+static const char *volup[]    = {"amixer","set","Master","2%+", NULL};
+static const char *voldwn[]   = {"amixer","set","Master","2%-", NULL};
+static const char *mute[]     = {"amixer","-D","pulse","set","Master","1+","toggle", NULL};
+static const char *bright[]   = {"xbacklight","-inc","5", NULL};
+static const char *dark[]     = {"xbacklight","-dec","5", NULL};
+//static const char *volumeraise[] = {"/home/lordjesus/Scripts/volumeraise.sh", NULL};
 ///---Cursor---///
 /* default position of the cursor:
  * correct values are:
@@ -37,7 +53,7 @@ static const char *volumeraise[] = {"/home/lordjesus/Scripts/volumeraise.sh", NU
 /*0) Outer border size. If you put this negative it will be a square.
  *1) Full borderwidth    2) Magnet border size
  *3) Resize border size  */
-static const uint8_t borders[] = {3,5,5,4};
+static const uint8_t borders[] = {8,9,9,8};
 /* Windows that won't have a border.
  * It uses substring comparison with what is found in the WM_NAME
  * attribute of the window. You can test this using `xprop WM_NAME`
@@ -189,8 +205,12 @@ static key keys[] = {
     {  MOD |CONTROL,      XK_q,          twobwm_exit,       {.i=0}},
     {  MOD |CONTROL,      XK_r,          twobwm_restart,    {.i=0}},
     {  MOD ,              XK_space,      halfandcentered,   {.i=0}},
-	// Media keys
-	{ 0x00000000 , 0x1008ff13,			 start,				{.com = volumeraise}},
+    // Media keys
+    { 0x000000,           0x1008ff13,    start,             {.com = volup}},
+    { 0x000000,           0x1008ff11,    start,             {.com = voldwn}},
+    { 0x000000,           0x1008ff12,    start,             {.com = mute}},
+    { 0x000000,           0x1008ff02,    start,             {.com = bright}},
+    { 0x000000,           0x1008ff03,    start,             {.com = dark}},
     // Change current workspace
        DESKTOPCHANGE(     XK_1,                             0)
        DESKTOPCHANGE(     XK_2,                             1)

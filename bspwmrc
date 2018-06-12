@@ -41,11 +41,13 @@ bspc config gapless_monocle      true
 bspc config single_monocle       false
 bspc config paddingless_monocle  true
 
-hsetroot -solid '#8f6772'
+
+hsetroot -solid '#8f6772' &
 polybar top &
+xsetroot -cursor_name left_ptr &
 xrdb -load ~/.Xresources &
-polybar bottom &
 setxkbmap -option ctrl:nocaps &
 xmodmap -e "keycode 107 = Super_R" &
 feh --bg-fill /home/lordjesus/Downloads/pixel-skull-20080.jpg &
-compton --vsync opengl -f
+compton --vsync opengl -f &
+dropbox start
