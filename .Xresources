@@ -84,7 +84,7 @@
 
 !URxvt.background  :[50]#1b182c !--Uncomment for transparency
 URxvt.cursorBlink : 0
-URxvt.font         : xft:DejaVu Sans Mono:size=8
+URxvt.font         : xft:DejaVu Sans Mono:size=6
 !URxvt.italicFont  : xft:Iosevka Term:style=italic:size=13
 
 URxvt.lineSpace           : 0
