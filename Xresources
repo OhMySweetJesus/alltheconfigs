@@ -1,0 +1,151 @@
+! ------------------------------------------------------------------------------
+!  Colors
+! ------------------------------------------------------------------------------
+#define bg     #2b2b2b
+#define fg     #b7c5d3
+#define base00 #7f7f7f
+#define base01 #e15a60
+#define base02 #a9cfa4
+#define base03 #ffe2a9
+#define base04 #91c5d3
+#define base05 #f1a5ab
+#define base06 #91c5d3
+#define base07 #ffffff
+#define base08 #7f7f7f
+#define base09 #e15a60
+#define base0A #a9cfa4
+#define base0B #ffe2a9
+#define base0C #91c5d3
+#define base0D #f1a5ab
+#define base0E #91c5d3
+#define base0F #ffffff
+
+! Old Colors
+! bg	#2a2d37
+
+! special
+*.foreground:   fg
+*.background:   bg
+*.cursorColor:  base07
+
+! black
+*.color0:       base00
+*.color8:       base00
+
+! red
+*.color1:       base01
+*.color9:       base01
+
+! green
+*.color2:       base02
+*.color10:      base02
+
+! yellow
+*.color3:       base03
+*.color11:      base03
+
+! blue
+*.color4:       base04
+*.color12:      base04
+
+! magenta
+*.color5:       base05
+*.color13:      base05
+
+! cyan
+*.color6:       base06
+*.color14:      base06
+
+! white
+*.color7:       base07
+*.color15:      base07
+
+! ------------------------------------------------------------------------------
+!  URxvt
+! ------------------------------------------------------------------------------
+
+!*foreground:   base05
+!*background:   base00
+!*cursorColor:  base05
+!
+!*color0:       base00
+!*color1:       base08
+!*color2:       base0B
+!*color3:       base0A
+!*color4:       base0D
+!*color5:       base0E
+!*color6:       base0C
+!*color7:       base05
+!
+!*color8:       base03
+!*color9:       base09
+!*color10:      base01
+!*color11:      base02
+!*color12:      base04
+!*color13:      base06
+!*color14:      base0F
+!*color15:      base07
+
+!URxvt.background  :[50]#1b182c !--Uncomment for transparency
+URxvt.cursorBlink : 0
+URxvt*font:         xft:Inconsolata:size=10
+!URxvt.italicFont  : xft:Iosevka Term:style=italic:size=13
+
+URxvt.lineSpace           : 0
+URxvt.letterSpace         : 0
+URxvt.scrollBar           : false
+URxvt.internalBorder      : 32
+URxvt.cursorUnderline     : false
+URxvt.geometry            : 70x35
+URxvt.thickness           : 5
+URxvt.titleBar            : false
+URxvt.intensityStyles     : false
+
+URxvt.perl-ext-common : default,matcher
+URxvt.url-launcher    : firefox
+URxvt.matcher.button  : 1
+!URxvt.depth 	      : 32 !-- Uncomment for transparency
+! ------------------------------------------------------------------------------
+! rofi
+! ------------------------------------------------------------------------------
+! rofi.color-enabled: true
+! 
+! rofi.color-window:    base00 , base00 , base00 , base00 , base03
+! rofi.color-normal:    base00 , base03 , base00 , base00 , base07
+! rofi.color-active:    base03 , base0E , base00 , base0B , base00
+! rofi.color-urgent:    base00 , base03 , base00 , base00 , base03
+! 
+! rofi.fake-transparency : true
+! rofi.font              : Iosevka Term 12
+! rofi.columns           : 1
+! rofi.separator-style   : none
+! rofi.hide-scrollbar    : true
+! rofi.location          : 0
+! rofi.yoffset           : 48
+! rofi.xoffset           : 48
+! rofi.padding           : 32
+! rofi.fullscreen        : false
+! rofi.width             : 300
+! rofi.lines             : 6
+!
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.rgba: rgb
+Xft.dpi: 110
+
+! ------------------------------------------------------------------------------
+! 2bwm
+! ------------------------------------------------------------------------------
+
+twobwm.border_width: 8
+twobwm.outer_border: 5
+twobwm.focus_color: base00
+twobwm.unfocus_color: base00
+twobwm.fixed_color: base0D
+twobwm.unkill_color: base08
+twobwm.fixed_unkill_color: base0E
+twobwm.outer_border_color: base00
+twobwm.inverted_colors: false
+twobwm.enable_compton: true
