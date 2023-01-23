@@ -1,8 +1,8 @@
 #! /bin/sh
-/home/god/.dualmonitors.sh &
+
 sxhkd &
 
-bspc monitor LVDS1 -d I II III IV V VI VII VIII IX X
+bspc monitor eDP-1 -d 一 二 三 四 五 六 七 八 九 十
 #bspc monitor LVDS1 -d II IV VI VIII
 #bspc monitor VGA1 -d I III V VII IX X
 
@@ -34,10 +34,11 @@ bspc config single_monocle       false
 bspc config paddingless_monocle  true
 
 
-polybar top &
+polybar left &
 xsetroot -cursor_name left_ptr &
 xrdb -load ~/.Xresources &
 setxkbmap -option ctrl:nocaps &
 xmodmap -e "keycode 107 = Super_R" &
-feh --bg-fill /home/god/Pictures/bloodmoon.jpg &
-compton -c --vsync opengl -f
+feh --bg-fill /home/god/Pictures/kobayashi.jpg &
+picom &
+dunst
