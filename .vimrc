@@ -41,7 +41,7 @@ set nocompatible
 " UI
 set relativenumber
 
-colorscheme OceanicNext
+" colorscheme OceanicNext
 
 filetype plugin on
 filetype indent on
