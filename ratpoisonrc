@@ -1,0 +1,37 @@
+escape Super_L
+
+# Make messages appear in the middle of the screen
+set bargravity c
+
+# Window border size
+set border 5
+
+# Startup message on/off
+startup_message off
+
+
+# Startup programs
+exec xsetroot -cursor_name left_ptr
+exec feh --bg-fill ~/Pictures/kobayashi.jpg
+exec xfce4-panel
+exec firefox
+
+# Set keybindings
+bind c exec st
+bind tab next
+bind shift+tab prev
+
+bind h focusleft
+bind l focusright
+bind j focusdown
+bind k focusup
+
+bind H moveleft
+bind L moveright
+bind J movedown
+bind K moveup
+
+bind ! 
+
+# Fix panel position
+unmanage xfce4-panel
